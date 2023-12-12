@@ -2,7 +2,7 @@
 import rospy
 import sys
 
-from quest2_ros_msg.msg import OVR2ROSInputs, OVR2ROSHapticFeedback
+from quest2ros.msg import OVR2ROSInputs, OVR2ROSHapticFeedback
 from geometry_msgs.msg import PoseStamped, Twist 
 import numpy as np 
 
