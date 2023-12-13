@@ -13,16 +13,16 @@ class ros2quest:
   def __init__(self):
 
     #subscriber to quest
-    self.ovr2ros_right_hand_pose_sub = rospy.Subscriber("/ovr2ros_right_hand_pose",PoseStamped,self.ovr2ros_right_hand_pose_callback)
-    self.ovr2ros_right_hand_twist_sub = rospy.Subscriber("/ovr2ros_right_hand_twist",Twist,self.ovr2ros_right_hand_twist_callback)
-    self.ovr2ros_right_hand_inputs_sub = rospy.Subscriber("/ovr2ros_right_hand_inputs",OVR2ROSInputs,self.ovr2ros_right_hand_inputs_callback)
-    self.ovr2ros_left_hand_pose_sub = rospy.Subscriber("/ovr2ros_left_hand_pose",PoseStamped,self.ovr2ros_left_hand_pose_callback)
-    self.ovr2ros_left_hand_twist_sub = rospy.Subscriber("/ovr2ros_left_hand_twist",Twist,self.ovr2ros_left_hand_twist_callback)
-    self.ovr2ros_left_hand_inputs_sub = rospy.Subscriber("/ovr2ros_left_hand_inputs",OVR2ROSInputs,self.ovr2ros_left_hand_inputs_callback)
+    self.ovr2ros_right_hand_pose_sub = rospy.Subscriber("/q2r_right_hand_pose",PoseStamped,self.ovr2ros_right_hand_pose_callback)
+    self.ovr2ros_right_hand_twist_sub = rospy.Subscriber("/q2r_right_hand_twist",Twist,self.ovr2ros_right_hand_twist_callback)
+    self.ovr2ros_right_hand_inputs_sub = rospy.Subscriber("/q2r_right_hand_inputs",OVR2ROSInputs,self.ovr2ros_right_hand_inputs_callback)
+    self.ovr2ros_left_hand_pose_sub = rospy.Subscriber("/q2r_left_hand_pose",PoseStamped,self.ovr2ros_left_hand_pose_callback)
+    self.ovr2ros_left_hand_twist_sub = rospy.Subscriber("/q2r_left_hand_twist",Twist,self.ovr2ros_left_hand_twist_callback)
+    self.ovr2ros_left_hand_inputs_sub = rospy.Subscriber("/q2r_left_hand_inputs",OVR2ROSInputs,self.ovr2ros_left_hand_inputs_callback)
     
     #Puplisher to quest 
-    self.ros2ovr_right_hand_haptic_feedback_pub = rospy.Publisher("/ovr2ros_right_hand_haptic_feedback", OVR2ROSHapticFeedback, queue_size=1)
-    self.ros2ovr_left_hand_haptic_feedback_pub = rospy.Publisher("/ovr2ros_left_hand_haptic_feedback", OVR2ROSHapticFeedback, queue_size=1)
+    self.ros2ovr_right_hand_haptic_feedback_pub = rospy.Publisher("/q2r_right_hand_haptic_feedback", OVR2ROSHapticFeedback, queue_size=1)
+    self.ros2ovr_left_hand_haptic_feedback_pub = rospy.Publisher("/q2r_left_hand_haptic_feedback", OVR2ROSHapticFeedback, queue_size=1)
     self.ros2ovr_dice_twist_pub =rospy.Publisher("/dice_twist", Twist, queue_size=1)
     self.ros2ovr_q2r_twist_pub =rospy.Publisher("/q2r_twist", Twist, queue_size=1)
 
