@@ -1,4 +1,3 @@
-# Inputs
 bool button_upper
 bool button_lower
 float32 thumb_stick_horizontal
