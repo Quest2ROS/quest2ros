@@ -22,7 +22,7 @@ mkdir -p ~/quest2ros_ws/src && cd ~/quest2ros_ws/src
 git clone -b ros2 https://github.com/Quest2ROS/quest2ros.git
 
 # ROS TCP Endpoint (ROS2 branch)
-git clone -b main-ros2 https://github.com/MWelle77/ROS-TCP-Endpoint.git
+git clone -b main-ros2 https://github.com/MWelle77/ROS-TCP-Endpoint/tree/main-ros2
 ```
 
 ### 2 — Build
@@ -52,9 +52,9 @@ ros2 run quest2ros ros2quest.py
 ### 5 — Configure the Quest app
 
 On the Meta Quest, open the Quest2ROS app:
+1. Select ROS2 in the screen
 1. Enter your Ubuntu machine's IP address
 2. Set port to `10000`
-3. Select **ROS2** in the protocol toggle
 4. Press **Apply**
 
 
@@ -104,22 +104,21 @@ float32 amplitude
 
 ---
 
-## Coordinate Frame Convention
+## Cordinate frame allignment
 
-The Quest app converts Unity's left-handed coordinate system to the ROS convention:
-
-| Axis | Direction |
-|---|---|
-| X | Forward |
-| Y | Left |
-| Z | Up |
-
-Hold **A + B** (right hand) or **X + Y** (left hand) with both triggers to set the reference frame for relative teleoperation.
+By pressing A + B on the right and X+Y on the left the relative cordinatframe gets alligned to the current controller position.
+To use this for robot teleop allign the controller with the base frame of the robot and press the buttons.
 
 ---
 
-## Citation
+## Bibtex
 
-If you use this work please cite:
-
-> Welle, Ingelhag, Lippi, Wozniak, Gasparri, and Kragic (2023)
+```
+@inproceedings{@software{q2r2023,
+  title={Quest2ROS: An App to Facilitate Teleoperating Robots},
+  author={Welle, Michael C and Ingelhag, Nils and Lippi, Martina and Wozniak, Maciej K. and Gasparri, Andrea and Kragic, Danica},
+  url = {https://quest2ros.github.io/q2r-web/},
+  version = {1.0},
+  date={2023-12-01}
+}
+```
