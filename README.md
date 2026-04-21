@@ -4,6 +4,60 @@ ROS2 package for [Quest2ROS](https://github.com/Quest2ROS/quest2ros). Enables co
 
 > **ROS1 version** is on the `main` branch.
 
+
+---
+
+## Setup
+
+### Prerequisites
+- ROS2 (Humble or newer)
+- [ros_tcp_endpoint](https://github.com/MWelle77/ROS-TCP-Endpoint) — patched ROS2 branch (`main-ros2`)
+
+### 1 — Create a workspace and clone
+
+```bash
+mkdir -p ~/quest2ros_ws/src && cd ~/quest2ros_ws/src
+
+# This package
+git clone -b ros2 https://github.com/Quest2ROS/quest2ros.git
+
+# ROS TCP Endpoint (ROS2 branch)
+git clone -b main-ros2 https://github.com/MWelle77/ROS-TCP-Endpoint.git
+```
+
+### 2 — Build
+
+```bash
+cd ~/quest2ros_ws
+colcon build
+source install/setup.bash
+```
+
+### 3 — Run the TCP endpoint
+
+Replace `YOUR_MACHINE_IP` with your Ubuntu machine's IP address (the one reachable from the Quest over WiFi).
+
+```bash
+ros2 run ros_tcp_endpoint default_server_endpoint \
+  --ros-args -p ROS_IP:=YOUR_MACHINE_IP -p ROS_TCP_PORT:=10000
+```
+
+### 4 — Run the demo node
+
+```bash
+source ~/quest2ros_ws/install/setup.bash
+ros2 run quest2ros ros2quest.py
+```
+
+### 5 — Configure the Quest app
+
+On the Meta Quest, open the Quest2ROS app:
+1. Enter your Ubuntu machine's IP address
+2. Set port to `10000`
+3. Select **ROS2** in the protocol toggle
+4. Press **Apply**
+
+
 ---
 
 ## Topics
@@ -47,58 +101,6 @@ float32 press_middle
 float32 frequency
 float32 amplitude
 ```
-
----
-
-## Setup
-
-### Prerequisites
-- ROS2 (Humble or newer)
-- [ros_tcp_endpoint](https://github.com/Unity-Technologies/ROS-TCP-Endpoint) — ROS2 branch (`main-ros2`)
-
-### 1 — Create a workspace and clone
-
-```bash
-mkdir -p ~/quest2ros_ws/src && cd ~/quest2ros_ws/src
-
-# This package
-git clone -b ros2 https://github.com/Quest2ROS/quest2ros.git
-
-# ROS TCP Endpoint (ROS2 branch)
-git clone -b main-ros2 https://github.com/Unity-Technologies/ROS-TCP-Endpoint.git
-```
-
-### 2 — Build
-
-```bash
-cd ~/quest2ros_ws
-colcon build
-source install/setup.bash
-```
-
-### 3 — Run the TCP endpoint
-
-Replace `YOUR_MACHINE_IP` with your Ubuntu machine's IP address (the one reachable from the Quest over WiFi).
-
-```bash
-ros2 run ros_tcp_endpoint default_server_endpoint \
-  --ros-args -p ROS_IP:=YOUR_MACHINE_IP -p ROS_TCP_PORT:=10000
-```
-
-### 4 — Run the demo node
-
-```bash
-source ~/quest2ros_ws/install/setup.bash
-ros2 run quest2ros ros2quest.py
-```
-
-### 5 — Configure the Quest app
-
-On the Meta Quest, open the Quest2ROS app:
-1. Enter your Ubuntu machine's IP address
-2. Set port to `10000`
-3. Select **ROS2** in the protocol toggle
-4. Press **Apply**
 
 ---
 
